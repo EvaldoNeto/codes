@@ -1,0 +1,30 @@
+(setq inhibit-startup-message t)
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+(global-linum-mode 1)
+
+(require 'package)
+
+(add-to-list 'package-archives '("melpa" . "https://melpa.milkbox.net/packages/"))
+
+;; initialize packages
+(package-initialize)
+
+;; start auto-complete with emacs
+(require 'auto-complete)
+;; do default config for auto-complete
+(require 'auto-complete-config)
+(ac-config-default)
+
+;; if the package you try to use is not installed,
+;; it installs it first
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+;; get c/cpp configuration if the file is c/cpp
+(with-eval-after-load 'cc-mode
+  (load "~/.emacs.d/init-c-cpp.el"))
+
+;; get java configuration if the file is .java
+(with-eval-after-load 'java-mode
+  (load "~/.emacs.d/init-java.el"))

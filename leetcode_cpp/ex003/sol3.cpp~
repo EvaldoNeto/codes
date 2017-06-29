@@ -1,0 +1,22 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+class Solution
+{
+public:
+  int lengthOfLongestSubstring(string s)
+  {
+    return s.size();
+  }
+};
+  
+int main()
+{
+  vector<string> v(10, "mopa");
+  for(int i = 0; i < 6; i++)
+    cout << v[i] << endl;
+  return (0);
+}

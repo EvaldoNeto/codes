@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript" src="maps_00.js"></script>
+  
+  <head>
+
+    <meta charset='UTF-8'/>
+
+    <title>First map</title>
+
+    <link rel='stylesheet' href='map_00.css'>
+    
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="options-box">
+	<h1>Find Your New NYC Home</h1>
+	<div>
+	  <input id="show-listings" type="button" value="Show Listings">
+	  <input id="hide-listings" type="button" value="Hide Listings">
+	</div>
+      </div>
+      <div id="map"></div>
+    </div>
+
+    <a href="maps_00.js" "initMap(); return false;"></a>
+    <script async defer
+	    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDa7N_FC1CQ49kESjQ5NcBnxlK_JV-p918&v=3&callback=initMap">
+    </script>
+    
+  </body>
+  
+</html>

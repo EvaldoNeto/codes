@@ -1,0 +1,5 @@
+import MySQLdb
+
+db = MySQLdb.connect(host = '127.0.0.1', user = 'root', passwd = 'mBiGaS@()#()', db = 'test')
+cur = db.cursor()
+cur.execute("CREATE TABLE song (id INT UNSIGNED PRIMARY KEY AUTO INCREMENT, title TEXT NOT NULL)")
