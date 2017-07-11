@@ -1,0 +1,25 @@
+#+SEQ_TODO: TODO(t) PENDING(p) | DONE(d)
+#+AUTHOR: Evaldo Pereira de Carvalho Neto
+#+TITLE: Material ML
+
+* ARTIGOS PARA LER
+
+** PENDING Word2Vec Explained
+   DEADLINE: <2017-07-11 Ter> SCHEDULED: <2017-07-11 Ter>
+
+   Ler e fazer um resumo do segundo link:
+   https://levyomer.wordpress.com/2014/04/25/word2vec-explained-deriving-mikolov-et-al-s-negative-sampling-word-embedding-method/
+
+*** Resumo
+
+    A ideia do word2vec é encontrar palavras parecidas em um mesmo contexto dentro de um texto e fornecer um vetor, peso, para
+as mesmas. Para isso é utilizado o modelo \textit{skip-gram} utilizando \textit{negative sampling},  não ficou claro mas essa solução possui
+melhores resultados. Com isso ainda tenho como pendências:
+    - Pesquisar sobre \textit{skip-gram} e
+    - Pesquisar sobre \textit{negative sampling}. 
+
+** TODO Distributed Representations of Words and Phrases and their Compositionality 
+   DEADLINE: <2017-07-12 Qua> SCHEDULED: <2017-07-11 Ter>
+
+   Ler e fazer um resumo do seguinte artigo:
+   http://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf
