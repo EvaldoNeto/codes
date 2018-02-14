@@ -1,0 +1,1 @@
+Day 02 from zero2one: HTML, CSS, JS

@@ -1,0 +1,83 @@
+<link href="firstCSS.css" rel="stylesheet" type="text/css">
+<script src="firstJS.js"></script>
+<script src="server.js"></script>
+
+<html>
+  <head>
+    <title>Title</title>
+  </head>
+  <body>
+    <center>
+      <header class = "primary-header">
+	<h1>A Song of Ice and Fire</h1>
+      </header>
+    </center>
+    
+    <section class="home">
+      <header>
+        <h1>Home</h1>
+      </header>
+
+      <center>
+	<figure class="img">
+	  <img
+	     class="small"
+	     src = "http://highlighthollywood.com/wp-content/uploads/2014/06/gameofthrones14_145.jpg"/>
+
+	  <img
+	     class="small"
+	     src = "https://gamingcentral.in/wp-content/uploads/2017/03/game-of-thrones-white-walkers-wallpaper.jpg"/>
+	  
+	  <img
+	     class="small"
+	     src = "http://cdn.collider.com/wp-content/uploads/2017/08/game-of-thrones-season-7-finale-zombie-dragon.jpg"/>
+	</figure>
+      </center>
+    </section>
+    
+    <section class="about">
+      <header>
+        <h1>About</h1>
+	<p>Game of Thrones is an American fantasy drama television series created by David Benioff and D. B. Weiss. It is an adaptation of A Song of Ice and Fire, George R. R. Martin's series of fantasy novels, the first of which is A Game of Thrones. It is filmed in Belfast and elsewhere in the United Kingdom, Canada, Croatia, Iceland, Malta, Morocco, Spain, and the United States. The series premiered on HBO in the United States on April 17, 2011, and its seventh season ended on August 27, 2017. The series will conclude with its eighth season premiering in 2019</p>
+      </header>
+    </section>
+
+    <section class="contact">
+      <header>
+        <h1>Contact</h1>	
+      </header>
+      <form onsubmit="printResult()">
+	<fieldset>
+	  <label>Nome</label>
+	  <input type="text" required id="input_text"/>
+	</fieldset>
+	<fieldset>
+	  <label>Email</label>
+	  <input type="email" required id="input_email"/>
+	</fieldset>
+	<button type="submit">Enviar</button>
+	<a href = "NoOne.html">Link</a>
+      </form>
+    </section>
+    
+    <section class="projects">
+      <header>
+        <h1>Projects</h1>
+      </header>
+      <center>
+	<button onclick="getPeople()">Load</button>
+	<p id="textResult"></p>
+      </center>
+    </section>
+    
+    <section>
+      <header>
+        <h1>Section Title</h1>
+      </header>
+    </section>
+    
+    <footer>
+      Footnote
+    </footer>
+  </body>
+</html>

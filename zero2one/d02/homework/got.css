@@ -1,0 +1,63 @@
+.demo-layout-transparent {
+    background: url('/home/biga/codes/zero2one/d02/homework/img/TheWall.jpg') center / cover;
+}
+.demo-layout-transparent .mdl-layout__header,
+.demo-layout-transparent .mdl-layout__drawer-button {
+  /* This background is dark, so we set text to white. Use 87% black instead if
+     your background is light. */
+  color: white;
+}
+
+.mdl-grid.to-left {
+    margin-left: -50px;
+}
+
+.mdl-layout__content {
+    pointer-events: none;
+    z-index: 0;
+}
+
+.demo-card-wide.mdl-card {
+    width: 250px;
+    height: 250px;
+    left: 300px;
+    top: 50px;
+}
+
+.demo-card-wide > .mdl-card__title {
+    color: #fff;
+    height: 476px;
+}
+
+.demo-card-wide > .mdl-card__menu {
+    color: #fff;
+}
+
+.jaime {
+    background: url('/home/biga/codes/zero2one/d02/homework/img/jaime.jpg') center / 250px 150px;
+}
+
+.arya {
+    background: url('/home/biga/codes/zero2one/d02/homework/img/arya.jpg') center / 250px 150px;
+}
+
+.rhaegar {
+    background: url('/home/biga/codes/zero2one/d02/homework/img/rhaegar.jpg') center / 250px 160px;
+}
+
+.event-card > .mdl-card__actions {
+    border-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    box-sizing:border-box;
+    align-items: center;
+    color: #fff;
+}
+
+button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}

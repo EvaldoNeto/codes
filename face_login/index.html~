@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<html ng-app="login">
+  <head>
+    <title>Facebook Login JavaScript Example</title>
+    <meta charset="UTF-8">
+  </head>
+  <body ng-controller="loginController as vm">
+    <button ng-click="login()">face</button>
+    <button ng-click="loginTwitter()">twitter</button>
+    <div id="status"></div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <script src="controllers/loginController.js"></script>
+  </body>
+</html>

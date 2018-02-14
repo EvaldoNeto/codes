@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <!-- Material Design Lite -->
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="got.js"></script>
+    <link href="got.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  </head>
+  <body>
+    <!-- Uses a transparent header that draws on top of the layout's background -->
+    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+      <header class="mdl-layout__header mdl-layout__header--transparent">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title">A Song of Ice and Fire</span>
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <!-- Navigation -->
+	  <button class="mdl-navigation__link" onclick="getPeople('aliases')">Aliases</button>
+	  <button class="mdl-navigation__link" onclick="getPeople('gender')">Gender</button>
+	  <button class="mdl-navigation__link" onclick="getPeople('culture')">Culture</button>
+        </div>	
+      </header>
+           
+      <div class="mdl-grid to-left">
+	<div class="mdl-cell mdl-cell--4-col">
+	  <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+	    <div class="mdl-card__title rhaegar">
+	      <h2 class="mdl-card__title-text">Rhaegar Targaryen</h2>
+	    </div>
+	    <p class="mdl-card__supporting-text" id="textRhaegar"></p>
+
+	      <div class="mdl-card__actions mdl-card--border">
+		<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="http://gameofthrones.wikia.com/wiki/Rhaegar_Targaryen">
+		  Wiki
+		</a>
+	      </div>
+	      <div class="mdl-card__menu">
+		<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" onclick="getInfo()">
+		  <i class="material-icons">share</i>
+		</button>
+	      </div>
+	  </div>
+	</div>
+
+
+	<div class="mdl-cell mdl-cell--4-col">
+	  <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+	    <div class="mdl-card__title arya">
+	      <h2 class="mdl-card__title-text">Arya Stark</h2>
+	    </div>
+	    <p class="mdl-card__supporting-text" id="textArya"></p>
+	      <div class="mdl-card__actions mdl-card--border">
+		<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="http://gameofthrones.wikia.com/wiki/Arya_Stark">
+		  Wiki
+		</a>
+	      </div>
+	      <div class="mdl-card__menu">
+		<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" onclick="getInfo()">
+		  <i class="material-icons">share</i>
+		</button>
+	      </div>
+	  </div>
+	</div>
+
+
+	
+	<div class="mdl-cell mdl-cell--4-col">
+	  <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+	    <div class="mdl-card__title jaime">
+	      <h2 class="mdl-card__title-text">Jaime Lannister</h2>
+	    </div>
+	    <p class="mdl-card__supporting-text" id="textJaime"></p>
+	      <div class="mdl-card__actions mdl-card--border">
+		<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="http://gameofthrones.wikia.com/wiki/Jaime_Lannister">
+		  Wiki
+		</a>
+	      </div>
+	      <div class="mdl-card__menu">
+		<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" onclick="getInfo()">
+		  <i class="material-icons">share</i>
+		</button>
+	      </div>
+	  </div>
+	</div>
+      </div>
+      
+      
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Title</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+        </nav>
+      </div>
+      <main class="mdl-layout__content">
+      </main>
+
+    </div>
+  </body>
+</html>

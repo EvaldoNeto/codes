@@ -1,0 +1,72 @@
+body {
+    color: black;
+    font-family: monospace;
+}
+
+section {
+    max-height: 50%;
+    padding-bottom: 50px;
+    max-width: 100%;
+}
+header h1 {
+    padding: 20px;
+}
+
+h1 {
+    color: ;
+}
+.primary header {
+    color: ;
+}
+
+.home {
+    color: white;
+    background: black;
+}
+
+.about {
+    color:  ;
+}
+
+.projects {
+    color: ;
+}
+
+figure img {
+    max-width: 25%;
+    max-heigth: 50%;
+}
+
+figure .small {
+    margin: 0 20px;
+}
+
+label {
+    margin-bottom: 5px;
+    display: block;
+}
+
+input {
+    width: 100%;
+}
+
+form button {
+    width: 100%;
+    display: block;
+    padding: 10px;
+    background: blue;
+    color: #fff;
+    border: 0px;
+    margin-top: 10px;
+}
+
+fieldset {
+    margin-bottom: 10px;
+}
+
+button {
+    width: 100px;
+    height: 30;
+    background: black;
+    color: white;
+}

@@ -1,0 +1,14 @@
+const person = []; //empty object
+function getPeople(){
+    fetch('https://anapioficeandfire.com/api/characters/583/?format=json')
+	.then(response => response.json())
+	.then(result => {
+	    person.push(result);
+	    console.log(person);
+	    //document.write(person[0].name);
+	    document.getElementById("textResult").innerHTML = `Name: ${result.name}`;
+	})
+	.catch(err => {
+	    console.error('Failed retrieving information, err');
+	});
+}
