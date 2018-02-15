@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-	.module('login', [])
+	.module('login')
 	.controller('loginController', loginController);
 
-    loginController.$inject = ['$http', '$scope', '$ajax'];
+    loginController.$inject = ['$http', '$scope', 'oauthService'];
     
-    function loginController($http, $scope, $ajax) {
+    function loginController($http, $scope, oauthService) {
 	let vm = this;
 
 	console.log("CONTROLLER");
@@ -21,36 +21,21 @@
 	
 	function loginTwitter() {
 	    console.log("Twiter");
-	    $http({
-		method: 'POST',
-		url: 'https://api.twitter.com/oauth/request_token',
-		headers: {Authorization: 'OAuth oauth_consumer_key=\\"Bmpjf1OgUQO3D0ZHKjqyWcr7W\\",oauth_token=\\"779115434964611073-qYjIYJGEd7YTxeyp3YGf9SZNF668Qnk\\",oauth_signature_method=\\"HMAC-SHA1\\",oauth_timestamp=\\"1518617918\\",oauth_nonce=\\"lEQ3cCEkzy2\\",oauth_signature=\\"pSAaUCgJhvq723qPR3GLN%2BjMKS4%3D\\"' }
-	    })
-		.then(function(response){
-		    console.log(response);
-		})
-		.catch(function(error) {
-		    throw new Error(error);
-		});
-	}
+	    console.log(oauthService.timeStamp());
+	    console.log(oauthService.nonce(11));
 
-	function tweet() {
-	    var settings = {
-		"async": true,
-		"crossDomain": true,
-		"url": "https://api.twitter.com/oauth/request_token",
-		"method": "POST",
-		"headers": {
-		    "Authorization": "OAuth oauth_consumer_key=\\\"Bmpjf1OgUQO3D0ZHKjqyWcr7W\\\",oauth_token=\\\"779115434964611073-qYjIYJGEd7YTxeyp3YGf9SZNF668Qnk\\\",oauth_signature_method=\\\"HMAC-SHA1\\\",oauth_timestamp=\\\"1518617918\\\",oauth_nonce=\\\"lEQ3cCEkzy2\\\",oauth_signature=\\\"pSAaUCgJhvq723qPR3GLN%2BjMKS4%3D\\\"",
-		    "Cache-Control": "no-cache"
-		}
-	    }
+	    let params = {status : "Hello Ladies + Gentlemen, a signed OAuth request!",
+			  include_entities : true,
+			  oauth_consumer_key : "xvz1evFS4wEEPTGEFPHBog",
+			  oauth_nonce : "kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg",
+			  oauth_signature_method : "HMAC-SHA1",
+			  oauth_timestamp : 1318622958,
+			  oauth_token : "370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb",
+			  oauth_version : "1.0"};
 
-	    $.ajax(settings).done(function (response) {
-		console.log(response);
-	    });
-	}
-	
+	    let url = "https://api.twitter.com/1.1/statuses/update.json";
+	    console.log(oauthService.sigBaseString("post", url, params));
+	    
+	}	
     }
 })();
-
