@@ -1,11 +1,11 @@
 {
   "name": "face_login",
   "version": "1.0.0",
-  "description": "login",
-  "main": "facebookSDK.js",
+  "main": "jquery.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "biga",
-  "license": "ISC"
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

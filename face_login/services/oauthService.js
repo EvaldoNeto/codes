@@ -4,8 +4,8 @@
     angular
 	.module('login', [])
 	.service('oauthService', oauthService);
-
-    function oauthService () {
+    
+    function oauthService (consumerSecret, tokenSecret, appUrl, $http) {
 	let service = {
 	    timeStamp : timeStamp,
 	    nonce : nonce,
@@ -13,11 +13,12 @@
 	    getParamString : getParamString,
 	    sigBaseString : sigBaseString,
 	    sigKey : sigKey,
-	    oauthSignature : oauthSignature
+	    oauthSignature : oauthSignature,
+	    requestToken : requestToken
 	}
 
 	return service;
-
+	
 	//Based on https://stackoverflow.com/questions/221294/how-do-you-get-a-timestamp-in-javascript
 	function timeStamp() {
 	    console.log("TIME STAMP");
@@ -46,20 +47,9 @@
 		text += aux[i] + '%21';
 	    }
 	    text += aux[aux.length - 1];
-	    return text;
+	    return text;	    
 	}
 
-	//Returns de parameter string, the params argument should follow the pattern bellow:
-	/*
-	  params = {status : "Hello Ladies + Gentlemen, a signed OAuth request!",
-	  include_entities : true,
-	  oauth_consumer_key : "xvz1evFS4wEEPTGEFPHBog",
-	  oauth_nonce : "kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg",
-	  oauth_signature_method : "HMAC-SHA1",
-	  oauth_timestamp : 1318622958,
-	  oauth_token : "370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb",
-	  oauth_version : "1.0"};
-	*/
 	function getParamString(params) {
 	    let aux = [];
 	    let text = "";
@@ -84,12 +74,59 @@
 	}
 
 	//Returns the signing key
-	function sigKey(consumerSecret, tokenSecret) {
-	    return percentEncode(consumerSecret) + "&" + percentEncode(tokenSecret);
+	function sigKey() {
+	    return percentEncode(consumerSecret.twitter) + "&" + percentEncode(tokenSecret.twitter);
 	}
 
-	function oauthSignature() {
+	// Returns the oauth signature key
+	function oauthSignature(params) {
+	    let key = sigKey();	    
+	    let msg = sigBaseString("post", appUrl.twitter, params);
+	    let mopa = CryptoJS.HmacSHA1(msg, key);
+	    let oauthSigKey = mopa.toString(CryptoJS.enc.Base64);
+	    return oauthSigKey;
+	}
 
+	function requestToken() {
+	    let params = {
+	//	'Postman-Token':  '4101b20e-ec85-09ca-f6ed-9492ddc36562',
+	//	'Cache-Control': 'no-cache',
+		'oauth_consumer_key' : "Bmpjf1OgUQO3D0ZHKjqyWcr7W",
+		'oauth_nonce' : nonce(11),
+		'oauth_signature_method' : "HMAC-SHA1",
+		'oauth_timestamp' : timeStamp(), 
+		'oauth_token' : "779115434964611073-qYjIYJGEd7YTxeyp3YGf9SZNF668Qnk",
+		//'oauth_version' : "1.0"
+	    };
+	    let oauth_signature = oauthSignature(params);
+
+	    let auth = 'Oauth ';
+	    let temp = {
+		oauth_consumer_key : "Bmpjf1OgUQO3D0ZHKjqyWcr7W",
+		oauth_nonce : params.oauth_nonce,
+		oauth_signature_method : "HMAC-SHA1",
+		oauth_timestamp :params.oauth_timestamp,
+		oauth_token : "779115434964611073-qYjIYJGEd7YTxeyp3YGf9SZNF668Qnk",
+		oauth_signature : oauth_signature.substring(0, oauth_signature.length - 1) + '%3D'
+	    };
+
+	    for(let x in temp) {
+		auth += x + '=' + '"' + temp[x] + '"'; 
+	    }
+	    console.log(temp);
+	    console.log(auth);
+	    $http({
+		method : "POST",
+		url : appUrl.twitter,
+		headers: {'Authorization': auth}
+	    })
+		.then(function(response) {
+		    console.log(response);
+		})
+		.catch(function(error) {
+		    console.log(error);
+		    throw new Error(error);    
+		});
 	}
     }
 })();

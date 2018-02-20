@@ -4,15 +4,30 @@
   <head>
     <title>Facebook Login JavaScript Example</title>
     <meta charset="UTF-8">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="200556172120-ia7f9la6cetv1vna11st3m6ab3sfpm5f.apps.googleusercontent.com">
+
   </head>
-  <body ng-controller="loginController as vm">
-    <button ng-click="login()">face</button>
-    <button ng-click="loginTwitter()">twitter</button>
+  <body>
+    <!-- <div ng-controller="loginController as vm">
+	 <button ng-click="login()">face</button>
+	 <button ng-click="loginTwitter()">twitter</button>
+    </div> -->
+    <div ng-controller="googleController as vm" >
+      <button ng-click="loginGoogle()">google</button>
+    </div> 
     <div id="status"></div>
+    <!--    <div class="g-signin2" data-onsuccess="loginGoogle" data-theme="dark"></div>
+	    <button ng-click="loginGoogle">google</button>
+	    <button ng-click="logOutGoogle()">Sign out</button> -->
     
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
-    <script src="services/oauthService.js"></script>
-    <script src="controllers/loginController.js"></script>
-    <script src="jquery.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- <script src="services/oauthService.js"></script>
+	 <script src="controllers/loginController.js"></script>  -->
+    <script src="services/mopaService.js"></script>
+    <script src="controllers/googleController.js"></script>    
+    <script type="text/javascript" src="constants.js"></script>
+    <script type="text/javascript" src="bower_components/crypto-js/crypto-js.js"></script>
   </body>
 </html>
