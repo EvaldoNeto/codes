@@ -1,0 +1,20 @@
+server:
+  
+  static: { enabled: false }
+
+  urouting:
+    default-content-type: "application/json"
+
+  auth:
+
+    # Mecanismo de autenticaçao: fixed
+    # Valores padroes
+    fixed-auth: { username: "admin", password: "admin" }
+
+
+  db:
+    datasources:
+      default:
+        jdbc-url: "jdbc:mysql://localhost/Biga?useSSL=false"
+        username: "root"
+        password: "root"
